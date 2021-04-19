@@ -3,7 +3,17 @@ const merge = (leftArr, rightArr) =>{
 const output =[] 
 let leftIndex = 0;
 let rightIndex = 0;
-} //helper fn
+while(leftIndex < leftArr.length || rightIndex < rightArr.length){
+    const leftEl = leftArr[leftIndex]
+    const rightEl =rightArr[rightIndex]
+if(leftEl < rightEl){
+    output.push(leftEl)
+    leftIndex++}else{
+        output.push(rightEl);
+        rightIndex++
+    }
+}
+} //helper fn, when popping into output increment indices
 
 const mergeSort = array =>{
     if(array.length<1){
@@ -14,7 +24,7 @@ const mergeSort = array =>{
     const rightArr = array.slice(middleIndex)
     return merge(
         mergeSort(leftArr),
-        mergeSort(rightArr) //recursing mergeSort until theres one element
+        mergeSort(rightArr) //recursing mergeSort until theres one element the 2 arguments in the merge fn 
     ) 
     //im calling merge in this?
 } //goal of this fn break original array into indiviual arrays
